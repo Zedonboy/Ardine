@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel" type="com.declantech_softwares.ardine.ui.main.MainViewModel"/>
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/main_frag_coordinaator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_height="200dp"
+                android:layout_width="match_parent" android:background="@color/background">
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/profile_frag_collapseToolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <androidx.appcompat.widget.Toolbar
+                        android:padding="0dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/main.toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        app:layout_collapseMode="pin" app:contentInsetStart="0dp">
+                    <com.arlib.floatingsearchview.FloatingSearchView
+                            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+                            app:floatingSearch_dimBackground="true"
+                            android:id="@+id/searchView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:floatingSearch_leftActionMode="showHamburger"
+                    />
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <LinearLayout app:layout_anchor="@id/appbar" app:layout_anchorGravity="bottom"
+                      android:layout_width="match_parent" android:layout_height="100dp" android:gravity="center">
+
+            <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        >
+            <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
+                                                       android:layout_height="match_parent"
+                                                       android:id="@+id/main_frag_recycler"/>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

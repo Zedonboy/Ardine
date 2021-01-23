@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/app_nav" app:startDestination="@id/splashFragment">
+
+    <action android:id="@+id/action_premiumUpgradeFragment_self" app:destination="@id/premiumUpgradeFragment"/>
+    <action android:id="@+id/action_loginfragment" app:destination="@id/loginFragment"/>
+    <action android:id="@+id/action_registerfragment" app:destination="@id/registerFragment"/>
+    <action android:id="@+id/action_mainfragment" app:destination="@id/mainFragment"/>
+
+    <fragment android:id="@+id/mainFragment" android:name="com.declantech_softwares.ardine.ui.main.MainFragment"
+              android:label="MainFragment">
+        <action android:id="@+id/action_mainFragment_to_courseOutlineFragment"
+                app:destination="@id/courseOutlineFragment"/>
+        <action android:id="@+id/action_mainFragment_to_savedMaterialFragment"
+                app:destination="@id/savedMaterialFragment"/>
+
+    </fragment>
+    <fragment android:id="@+id/courseOutlineFragment" android:name="com.declantech_softwares.ardine.fragments.CourseOutlineFragment"
+              android:label="fragment_course_outline" tools:layout="@layout/fragment_course_outline">
+        <action android:id="@+id/action_courseOutlineFragment_to_readingFragment"
+                app:destination="@id/readingFragment"/>
+    </fragment>
+    <fragment android:id="@+id/savedMaterialFragment" android:name="com.declantech_softwares.ardine.fragments.SavedMaterialFragment"
+              android:label="fragment_saved_material" tools:layout="@layout/fragment_saved_material">
+        <action android:id="@+id/action_savedMaterialFragment_to_courseOutlineFragment"
+                app:destination="@id/courseOutlineFragment"/>
+    </fragment>
+    <fragment android:id="@+id/readingFragment" android:name="com.declantech_softwares.ardine.fragments.ReadingFragment"
+              android:label="fragment_reading2" tools:layout="@layout/fragment_reading2"/>
+    <fragment android:id="@+id/premiumUpgradeFragment"
+              android:name="com.declantech_softwares.ardine.PremiumUpgradeFragment"
+              android:label="fragment_premium_upgrade" tools:layout="@layout/fragment_premium_upgrade">
+
+    </fragment>
+    <fragment android:id="@+id/loginFragment" android:name="com.declantech_softwares.ardine.LoginFragment"
+              android:label="fragment_login" tools:layout="@layout/fragment_login"/>
+    <fragment android:id="@+id/registerFragment" android:name="com.declantech_softwares.ardine.RegisterFragment"
+              android:label="fragment_register" tools:layout="@layout/fragment_register"/>
+    <fragment android:id="@+id/splashFragment" android:name="com.declantech_softwares.ardine.SplashFragment"
+              android:label="fragment_splash" tools:layout="@layout/fragment_splash"/>
+</navigation>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="courseData" type="com.declantech_softwares.ardine.types.CourseMaterial"/>
+        <variable name="context" type="com.declantech_softwares.ardine.types.AppContext"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            android:checkable="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="170dp" app:cardCornerRadius="6dp" app:cardElevation="4dp"
+            android:id="@+id/search_item_card" android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" android:layout_marginTop="8dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:maxWidth="120dp"
+                    android:layout_height="0dp" tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/search_item_photo"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:scaleType="fitXY"/>
+            <TextView
+                    android:text="@{courseData.name}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/search_item_title" app:layout_constraintStart_toEndOf="@+id/search_item_photo"
+                    android:layout_marginLeft="16dp" android:layout_marginStart="16dp"
+                    app:layout_constraintTop_toTopOf="parent" android:textStyle="bold" android:textSize="36sp"
+                    android:layout_marginTop="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0" android:layout_marginRight="16dp"
+                    android:layout_marginEnd="16dp"/>
+            <TextView
+                    android:text="@{courseData.desc}"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/search_item_desc" app:layout_constraintStart_toEndOf="@+id/search_item_photo"
+                    app:layout_constraintTop_toBottomOf="@+id/search_item_title"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp" android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/linearLayout"/>
+            <ImageView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    app:goneUnless="@{courseData.premium &amp;&amp; !context.isUserPremium()}"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/searcH_item_indicator" app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="1dp"
+                    app:srcCompat="@drawable/ic_lock_green_600_36dp"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="50dp"
+                          android:orientation="horizontal" app:layout_constraintEnd_toEndOf="parent"
+                          app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/linearLayout">
+                <ImageView app:goneUnless="@{courseData.saved}" android:src="@drawable/ic_check_circle_green_600_36dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <ImageButton android:id="@+id/search_item_delete_btn" app:goneUnless="@{courseData.saved}" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                             android:src="@drawable/ic_delete_grey_600_48dp" android:background="#00000000"/>
+                <ImageButton android:id="@+id/search_item_save_btn" app:goneUnless="@{!courseData.saved}" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                             android:src="@drawable/ic_file_download_grey_600_48dp" android:background="#00000000"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

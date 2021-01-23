@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="contract" type="com.declantech_softwares.ardine.types.RegisterContract"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:padding="16dp"
+                  android:layout_gravity="center"
+                  tools:context=".LoginFragment" android:gravity="center" android:orientation="vertical">
+        <com.declantech_softwares.ardine.views.CustomTexTView
+                android:text="Sign Up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="36sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" android:textColor="@color/colorPrimary"/>
+        <com.declantech_softwares.ardine.views.CustomEditText android:layout_width="match_parent"
+                                                              android:inputType="textEmailAddress"
+                                                              android:layout_marginTop="20dp"
+                                                              android:text="@={contract.name}"
+                                                              android:hint="Name"
+                                                              android:background="@drawable/custom_edit_text_background"
+                                                              android:layout_height="60dp" android:gravity="center"/>
+
+        <com.declantech_softwares.ardine.views.CustomEditText android:layout_width="match_parent"
+                                                              android:inputType="textEmailAddress"
+                                                              android:layout_marginTop="20dp"
+                                                              android:text="@={contract.identifier}"
+                                                              android:hint="Email"
+                                                              android:background="@drawable/custom_edit_text_background"
+                                                              android:layout_height="60dp" android:gravity="center"/>
+
+        <com.declantech_softwares.ardine.views.CustomEditText android:layout_width="match_parent"
+                                                              android:hint="Password"
+                                                              android:text="@={contract.password}"
+                                                              android:inputType="textPassword"
+                                                              android:layout_marginTop="20dp"
+                                                              android:background="@drawable/custom_edit_text_background"
+                                                              android:layout_height="60dp" android:gravity="center"/>
+
+        <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
+                                                           android:id="@+id/register_btn"
+                                                           android:layout_marginTop="20dp"
+                                                           android:text="Register"
+                                                           android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>
